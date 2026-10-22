@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Возврат из WHOOP</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; min-height: 100svh; display: grid; place-items: center; padding: 24px; background: #faf9f6; color: #222; font-family: system-ui, sans-serif; }
+    main { width: 100%; max-width: 560px; }
+    .label { font-size: 14px; letter-spacing: .12em; font-weight: 600; }
+    h1 { font-size: clamp(2rem, 6vw, 3rem); line-height: 1.1; letter-spacing: -.04em; }
+    p { line-height: 1.6; }
+    textarea { width: 100%; padding: 14px; border: 1px solid #ccc; border-radius: 8px; background: white; font: inherit; resize: vertical; }
+    button { margin-top: 12px; padding: 12px 18px; border: 0; border-radius: 8px; background: #222; color: white; font: inherit; cursor: pointer; }
+    a { color: inherit; }
+    footer { margin-top: 32px; }
+    [hidden] { display: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="label">WHOOP</p>
+    <h1 id="title">Страница возврата WHOOP</h1>
+    <p id="message" role="status">Откройте эту страницу после авторизации в WHOOP. Сейчас код авторизации отсутствует.</p>
+    <section id="result" hidden>
+      <label for="code">Код авторизации</label>
+      <textarea id="code" rows="3" readonly spellcheck="false" autocomplete="off"></textarea>
+      <button id="copy" type="button">Скопировать код</button>
+      <p id="copy-status" role="status"></p>
+      <p>Используйте код в приложении, которое начало подключение. Получение кода ещё не означает, что подключение завершено.</p>
+    </section>
+    <noscript><p>Для обработки ответа WHOOP включите JavaScript.</p></noscript>
+    <footer><a href="/">На главную</a></footer>
+  </main>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const code = params.get('code');
+    const error = params.get('error');
+    // Keep callback credentials out of the visible URL and subsequent referrers.
+    if (location.search || location.hash) history.replaceState(null, '', location.pathname);
+    if (error) {
+      document.getElementById('title').textContent = 'Авторизация не завершена';
+      document.getElementById('message').textContent = error === 'access_denied'
+        ? 'Доступ к WHOOP не предоставлен. Вернитесь в приложение и повторите подключение.'
+        : 'WHOOP вернул ошибку авторизации. Вернитесь в приложение и повторите подключение.';
+    } else if (code) {
+      document.getElementById('title').textContent = 'Код авторизации получен';
+      document.getElementById('message').textContent = 'WHOOP вернул код для завершения подключения. Не публикуйте его и не передавайте посторонним.';
+      document.getElementById('result').hidden = false;
+      document.getElementById('code').value = code;
+    }
+    document.getElementById('copy').addEventListener('click', async () => {
+      const status = document.getElementById('copy-status');
+      try {
+        await navigator.clipboard.writeText(code);
+        status.textContent = 'Код скопирован.';
+      } catch {
+        document.getElementById('code').select();
+        status.textContent = 'Скопируйте выделенный код вручную.';
+      }
+    });
+  </script>
+</body>
+</html>
