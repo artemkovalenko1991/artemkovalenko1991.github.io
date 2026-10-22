@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Личный сайт Артёма Коваленко. Публикации и статьи.">
+    <meta name="description" content="Личный сайт Артёма Коваленко. Услуги, публикации и выступления, кейсы и клиенты.">
     <title>Артём Коваленко — личный сайт</title>
     <style>
       :root { color-scheme: light; font-family: system-ui, sans-serif; background: #faf9f6; color: #222; }
@@ -15,7 +15,7 @@
       header { border-bottom: 1px solid #dedbd4; }
       .header-inner { min-height: 96px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; padding-block: 1.25rem; }
       .brand { font-weight: 650; text-decoration: none; }
-      nav { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+      nav { display: flex; align-items: center; gap: 1rem 1.5rem; flex-wrap: wrap; }
       nav a { font-size: .95rem; }
       .language { display: flex; align-items: center; gap: .6rem; font-size: .85rem; }
       select { padding: .5rem; border: 1px solid #c8c3b9; border-radius: .35rem; color: inherit; background: transparent; font: inherit; }
@@ -24,13 +24,15 @@
       h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 7vw, 5.5rem); line-height: 1.08; font-weight: 600; letter-spacing: -.045em; }
       .intro p:last-child { max-width: 34rem; margin: 1.75rem 0 0; color: #625e57; font-size: 1.15rem; line-height: 1.7; }
       section { scroll-margin-top: 2rem; }
-      .publications { padding-block: 2.5rem 5rem; border-top: 1px solid #dedbd4; }
+      .content-section { padding-block: 2.5rem 5rem; border-top: 1px solid #dedbd4; }
       h2 { margin: 0 0 2rem; font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 550; letter-spacing: -.025em; }
+      .content-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
       .empty-state { padding: 2rem; border: 1px solid #dedbd4; border-radius: .5rem; }
       .empty-state h3 { margin: 0 0 .75rem; font-size: 1.15rem; font-weight: 550; }
       .empty-state p { margin: 0; color: #625e57; line-height: 1.7; max-width: 38rem; }
       footer { padding-block: 1.5rem; border-top: 1px solid #dedbd4; color: #756b5c; font-size: .85rem; }
-      @media (max-width: 600px) { .container { width: min(100% - 2rem, 1040px); } nav { gap: 1rem; width: 100%; justify-content: space-between; } .language { gap: .4rem; } .empty-state { padding: 1.5rem; } }
+      @media (max-width: 900px) { nav { width: 100%; } .language { margin-left: auto; } }
+      @media (max-width: 600px) { .container { width: min(100% - 2rem, 1040px); } nav { gap: 1rem; width: 100%; justify-content: space-between; } .language { gap: .4rem; margin-left: 0; } .content-grid { grid-template-columns: 1fr; } .empty-state { padding: 1.5rem; } }
     </style>
   </head>
   <body>
@@ -38,7 +40,9 @@
       <div class="container header-inner">
         <a class="brand" href="#home" data-i18n="name">Артём Коваленко</a>
         <nav aria-label="Основные разделы" id="navigation">
-          <a href="#publications" data-i18n="publications">Публикации</a>
+          <a href="#services" data-i18n="services">Перечень услуг</a>
+          <a href="#publications" data-i18n="publications">Публикации и выступления</a>
+          <a href="#cases" data-i18n="cases">Кейсы и клиенты</a>
           <div class="language">
             <label for="language" data-i18n="language">Язык</label>
             <select id="language" name="language">
@@ -53,13 +57,39 @@
       <section class="intro" aria-labelledby="intro-title">
         <p class="eyebrow" data-i18n="personal">Личный сайт</p>
         <h1 id="intro-title" data-i18n="name">Артём Коваленко</h1>
-        <p data-i18n="intro">Здесь я буду делиться своими статьями и публикациями.</p>
+        <p data-i18n="intro">Мои услуги, статьи и выступления, реализованные проекты и их результаты.</p>
       </section>
-      <section class="publications" id="publications" aria-labelledby="publications-title">
-        <h2 id="publications-title" data-i18n="publications">Публикации</h2>
+      <section class="content-section" id="services" aria-labelledby="services-title">
+        <h2 id="services-title" data-i18n="services">Перечень услуг</h2>
         <div class="empty-state">
-          <h3 data-i18n="soon">Первые статьи — скоро</h3>
-          <p data-i18n="empty">Раздел готовится к наполнению. Новые статьи будут появляться здесь.</p>
+          <h3 data-i18n="servicesSoon">Описание услуг — скоро</h3>
+          <p data-i18n="servicesEmpty">Здесь появится перечень моих услуг с описанием каждой из них.</p>
+        </div>
+      </section>
+      <section class="content-section" id="publications" aria-labelledby="publications-title">
+        <h2 id="publications-title" data-i18n="publications">Публикации и выступления</h2>
+        <div class="content-grid">
+          <div class="empty-state">
+            <h3 data-i18n="articles">Статьи</h3>
+            <p data-i18n="articlesEmpty">Здесь будут появляться мои статьи. Первые публикации — скоро.</p>
+          </div>
+          <div class="empty-state">
+            <h3 data-i18n="talks">Выступления</h3>
+            <p data-i18n="talksEmpty">Здесь будут ссылки на видеозаписи моих выступлений на конференциях.</p>
+          </div>
+        </div>
+      </section>
+      <section class="content-section" id="cases" aria-labelledby="cases-title">
+        <h2 id="cases-title" data-i18n="cases">Кейсы и клиенты</h2>
+        <div class="content-grid">
+          <div class="empty-state">
+            <h3 data-i18n="projects">Реализованные проекты</h3>
+            <p data-i18n="projectsEmpty">Здесь появятся описания реализованных проектов и достигнутых результатов.</p>
+          </div>
+          <div class="empty-state">
+            <h3 data-i18n="letters">Благодарственные письма</h3>
+            <p data-i18n="lettersEmpty">Здесь будут опубликованы сканы благодарственных писем от клиентов.</p>
+          </div>
         </div>
       </section>
     </main>
@@ -67,16 +97,24 @@
     <script>
       const translations = {
         ru: {
-          name: 'Артём Коваленко', personal: 'Личный сайт', publications: 'Публикации', language: 'Язык',
-          intro: 'Здесь я буду делиться своими статьями и публикациями.',
-          soon: 'Первые статьи — скоро', empty: 'Раздел готовится к наполнению. Новые статьи будут появляться здесь.',
-          title: 'Артём Коваленко — личный сайт', description: 'Личный сайт Артёма Коваленко. Публикации и статьи.', navigation: 'Основные разделы'
+          name: 'Артём Коваленко', personal: 'Личный сайт', publications: 'Публикации и выступления', language: 'Язык',
+          intro: 'Мои услуги, статьи и выступления, реализованные проекты и их результаты.',
+          services: 'Перечень услуг', servicesSoon: 'Описание услуг — скоро', servicesEmpty: 'Здесь появится перечень моих услуг с описанием каждой из них.',
+          articles: 'Статьи', articlesEmpty: 'Здесь будут появляться мои статьи. Первые публикации — скоро.',
+          talks: 'Выступления', talksEmpty: 'Здесь будут ссылки на видеозаписи моих выступлений на конференциях.',
+          cases: 'Кейсы и клиенты', projects: 'Реализованные проекты', projectsEmpty: 'Здесь появятся описания реализованных проектов и достигнутых результатов.',
+          letters: 'Благодарственные письма', lettersEmpty: 'Здесь будут опубликованы сканы благодарственных писем от клиентов.',
+          title: 'Артём Коваленко — личный сайт', description: 'Личный сайт Артёма Коваленко. Услуги, публикации и выступления, кейсы и клиенты.', navigation: 'Основные разделы'
         },
         en: {
-          name: 'Artem Kovalenko', personal: 'Personal website', publications: 'Publications', language: 'Language',
-          intro: 'This is where I will share my articles and publications.',
-          soon: 'First articles coming soon', empty: 'This section is being prepared. New articles will appear here.',
-          title: 'Artem Kovalenko — personal website', description: 'The personal website of Artem Kovalenko. Publications and articles.', navigation: 'Main navigation'
+          name: 'Artem Kovalenko', personal: 'Personal website', publications: 'Publications and talks', language: 'Language',
+          intro: 'My services, articles and talks, completed projects and their results.',
+          services: 'Services', servicesSoon: 'Service details coming soon', servicesEmpty: 'A list of my services and a description of each will appear here.',
+          articles: 'Articles', articlesEmpty: 'My articles will appear here. First publications coming soon.',
+          talks: 'Talks', talksEmpty: 'Links to video recordings of my conference talks will appear here.',
+          cases: 'Case studies and clients', projects: 'Completed projects', projectsEmpty: 'Descriptions of completed projects and their results will appear here.',
+          letters: 'Client appreciation letters', lettersEmpty: 'Scans of appreciation letters from clients will be published here.',
+          title: 'Artem Kovalenko — personal website', description: 'The personal website of Artem Kovalenko. Services, publications and talks, case studies and clients.', navigation: 'Main navigation'
         }
       };
       const selector = document.getElementById('language');
