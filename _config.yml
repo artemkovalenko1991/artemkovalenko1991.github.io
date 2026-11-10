@@ -1,0 +1,11 @@
+title: Артём Коваленко
+url: https://artemkovalenko1991.github.io
+baseurl: ""
+markdown: kramdown
+collections:
+  publications:
+    output: true
+    permalink: /publications/:name/
+exclude:
+  - templates
+  - README.md

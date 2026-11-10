@@ -1,0 +1,4 @@
+<!doctype html>
+<html lang="{{ page.lang | default: 'ru' }}">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{{ page.title | escape }} — {{ site.title }}</title><meta name="description" content="{{ page.description | escape }}"><link rel="stylesheet" href="{{ '/assets/publications.css' | relative_url }}"></head>
+<body><header><a href="{{ '/' | relative_url }}">Артём Коваленко</a></header><main><a href="{{ '/publications/' | relative_url }}">{% if page.lang == 'en' %}All publications{% else %}Все публикации{% endif %}</a><article><h1>{{ page.title | escape }}</h1><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%d.%m.%Y' }}</time>{{ content }}</article></main><footer>Артём Коваленко</footer></body></html>
