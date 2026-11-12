@@ -9,3 +9,4 @@ collections:
 exclude:
   - templates
   - README.md
+  - scripts
