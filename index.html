@@ -6,33 +6,42 @@
     <meta name="description" content="Личный сайт Артёма Коваленко. Услуги, публикации и выступления, кейсы и клиенты.">
     <title>Артём Коваленко — личный сайт</title>
     <style>
-      :root { color-scheme: light; font-family: system-ui, sans-serif; background: #faf9f6; color: #222; }
+      :root { color-scheme: light; font-family: system-ui, sans-serif; background: #F7F4EF; color: #321B46; }
       * { box-sizing: border-box; }
       body { margin: 0; min-height: 100vh; min-height: 100svh; }
       a { color: inherit; text-underline-offset: .25em; }
-      a:focus-visible, select:focus-visible { outline: 3px solid #775b35; outline-offset: 5px; }
+      a:focus-visible, select:focus-visible { outline: 3px solid #07664F; outline-offset: 5px; }
       .container { width: min(100% - 3rem, 1040px); margin-inline: auto; }
-      header { border-bottom: 1px solid #dedbd4; }
+      header { border-bottom: 1px solid #D9D2DD; }
       .header-inner { min-height: 96px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; padding-block: 1.25rem; }
       .brand { font-weight: 650; text-decoration: none; }
       nav { display: flex; align-items: center; gap: 1rem 1.5rem; flex-wrap: wrap; }
       nav a { font-size: .95rem; }
       .language { display: flex; align-items: center; gap: .6rem; font-size: .85rem; }
-      select { padding: .5rem; border: 1px solid #c8c3b9; border-radius: .35rem; color: inherit; background: transparent; font: inherit; }
+      select { padding: .5rem; border: 1px solid #625A69; border-radius: .35rem; color: inherit; background: transparent; font: inherit; }
       .intro { padding-block: clamp(4rem, 10vw, 8rem); }
-      .eyebrow { margin: 0 0 1.25rem; color: #756b5c; font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; }
+      .eyebrow { margin: 0 0 1.25rem; color: #625A69; font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; }
       h1 { max-width: 900px; margin: 0; font-size: clamp(2.6rem, 7vw, 5.5rem); line-height: 1.08; font-weight: 600; letter-spacing: -.045em; }
-      .intro p:last-child { max-width: 34rem; margin: 1.75rem 0 0; color: #625e57; font-size: 1.15rem; line-height: 1.7; }
+      .intro p:last-child { max-width: 34rem; margin: 1.75rem 0 0; color: #625A69; font-size: 1.15rem; line-height: 1.7; }
       section { scroll-margin-top: 2rem; }
-      .content-section { padding-block: 2.5rem 5rem; border-top: 1px solid #dedbd4; }
+      .content-section { padding-block: 2.5rem 5rem; border-top: 1px solid #D9D2DD; }
       h2 { margin: 0 0 2rem; font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 550; letter-spacing: -.025em; }
       .content-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-      .empty-state { padding: 2rem; border: 1px solid #dedbd4; border-radius: .5rem; }
+      .empty-state { padding: 2rem; border: 1px solid #D9D2DD; border-radius: .5rem; }
       .empty-state h3 { margin: 0 0 .75rem; font-size: 1.15rem; font-weight: 550; }
-      .empty-state p { margin: 0; color: #625e57; line-height: 1.7; max-width: 38rem; }
-      footer { padding-block: 1.5rem; border-top: 1px solid #dedbd4; color: #756b5c; font-size: .85rem; }
+      .empty-state p { margin: 0; color: #625A69; line-height: 1.7; max-width: 38rem; }
+      footer { padding-block: 1.5rem; border-top: 1px solid #D9D2DD; color: #625A69; font-size: .85rem; }
       @media (max-width: 900px) { nav { width: 100%; } .language { margin-left: auto; } }
       @media (max-width: 600px) { .container { width: min(100% - 2rem, 1040px); } nav { gap: 1rem; width: 100%; justify-content: space-between; } .language { gap: .4rem; margin-left: 0; } .content-grid { grid-template-columns: 1fr; } .empty-state { padding: 1.5rem; } }
+      header { background: #321B46; color: #FFFFFF; border-bottom-color: #321B46; }
+      header a:hover { color: #9FDEC1; }
+      header select { border-color: #9FDEC1; background: #321B46; color: #FFFFFF; }
+      header a:focus-visible, header select:focus-visible { outline-color: #9FDEC1; }
+      .eyebrow { color: #07664F; }
+      .empty-state { background: #ECE5F1; border-top: 3px solid #07664F; }
+      main a { color: #07664F; }
+      main a:hover { color: #321B46; }
+      ::selection { background: #9FDEC1; color: #321B46; }
     </style>
   </head>
   <body>

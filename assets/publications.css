@@ -1,1 +1,11 @@
-:root{font-family:system-ui,sans-serif;background:#faf9f6;color:#222;color-scheme:light}*{box-sizing:border-box}body{margin:0}main,header,footer{max-width:820px;margin:auto;padding:2rem 1.5rem}header,footer{border-bottom:1px solid #dedbd4}a{color:inherit;text-underline-offset:.25em}a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #775b35;outline-offset:4px}h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.15;letter-spacing:-.035em}article{line-height:1.8;overflow-wrap:anywhere}article img{max-width:100%;height:auto}pre{overflow:auto;padding:1rem;background:#eee}blockquote{border-left:3px solid #b4a58d;padding-left:1rem;margin-left:0}input,select{font:inherit;padding:.7rem;border:1px solid #c8c3b9;background:transparent;border-radius:.3rem}input{width:100%;margin:1rem 0}li{margin:1.5rem 0}.muted,time{color:#625e57}.top{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+:root{font-family:system-ui,sans-serif;background:#F7F4EF;color:#321B46;color-scheme:light}*{box-sizing:border-box}body{margin:0}main,header,footer{max-width:820px;margin:auto;padding:2rem 1.5rem}header,footer{border-bottom:1px solid #D9D2DD}a{color:inherit;text-underline-offset:.25em}a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #07664F;outline-offset:4px}h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.15;letter-spacing:-.035em}article{line-height:1.8;overflow-wrap:anywhere}article img{max-width:100%;height:auto}pre{overflow:auto;padding:1rem;background:#ECE5F1}blockquote{border-left:3px solid #07664F;padding-left:1rem;margin-left:0}input,select{font:inherit;padding:.7rem;border:1px solid #625A69;background:transparent;border-radius:.3rem}input{width:100%;margin:1rem 0}li{margin:1.5rem 0}.muted,time{color:#625A69}.top{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+/* Current brand palette: purple, emerald, milk, mint and lavender. */
+header{background:#321B46;color:#FFFFFF;border-color:#321B46}
+header a:hover{color:#9FDEC1}
+header select{background:#321B46;color:#FFFFFF;border-color:#9FDEC1}
+header a:focus-visible,header select:focus-visible{outline-color:#9FDEC1}
+main a{color:#07664F}main a:hover{color:#321B46}
+#articles{list-style:none;padding:0}#articles li{background:#ECE5F1;border:1px solid #D9D2DD;border-top:3px solid #07664F;border-radius:.5rem;padding:1.5rem}
+input{background:#FFFFFF}blockquote{background:#ECE5F1;padding-block:.5rem;padding-right:1rem}
+::selection{background:#9FDEC1;color:#321B46}
