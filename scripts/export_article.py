@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Export a selected My Zettel article and its local images; never commits or pushes."""
+from article_section import extract_article
 import argparse
 import datetime
 import json
@@ -14,6 +15,7 @@ p.add_argument('--slug', required=True, help='Permanent article identifier, lowe
 p.add_argument('--description', required=True)
 p.add_argument('--date', required=True, type=datetime.date.fromisoformat)
 p.add_argument('--lang', choices=['ru', 'en'], default='ru')
+p.add_argument('--update', action='store_true', help='Update existing article preserving metadata')
 p.add_argument('--write', action='store_true', help='Write files; otherwise only preview')
 a = p.parse_args()
 if not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', a.slug):
@@ -23,13 +25,24 @@ source = a.source.resolve(strict=True)
 text = source.read_text()
 if text.startswith('---\n'):
     p.error('Source has frontmatter: reconcile metadata before export to avoid losing properties')
+try:
+    text = extract_article(text)
+except ValueError as error:
+    p.error(str(error))
 target = root / '_publications' / (a.slug + '.md')
 url = '/publications/' + a.slug + '/'
 # Refuse to overwrite or create a second file at an existing permanent address.
+existing_header = None
 if target.exists():
-    p.error('Target exists: update the existing publication explicitly, preserving its permalink')
+    if not a.update:
+        p.error('Target exists: use --update to preserve its metadata')
+    existing_header = target.read_text().split('---\n', 2)[1]
+    if url not in existing_header:
+        p.error('Existing permalink differs; refusing to change it')
+elif a.update:
+    p.error('Cannot update a missing publication')
 for article in (root / '_publications').glob('*.md'):
-    if url in article.read_text():
+    if article != target and url in article.read_text():
         p.error('Permalink already exists in ' + str(article))
 images = {}
 def image(path, alt):
@@ -50,6 +63,8 @@ if '[[' in text:
     p.error('Unresolved Obsidian links: replace them with public Markdown links')
 metadata = {'layout': 'publication', 'title': source.stem, 'description': a.description, 'date': str(a.date), 'lang': a.lang, 'permalink': url}
 content = '---\n' + ''.join(k + ': ' + json.dumps(v, ensure_ascii=False) + '\n' for k, v in metadata.items()) + '---\n\n' + text
+if existing_header is not None:
+    content = '---\n' + existing_header + '---\n\n' + text
 print('Article:', target)
 print('URL:', url)
 print('Images:', len(images))
