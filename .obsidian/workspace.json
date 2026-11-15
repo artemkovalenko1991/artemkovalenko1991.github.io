@@ -22,17 +22,17 @@
             }
           },
           {
-            "id": "d9c38a4bbf50db00",
+            "id": "1823b8e146fcfcdf",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_publications/Зачем владельцу бизнеса заказывать предпроектное обследование перед стартом проекта.md",
+                "file": "_publications/why-business-owners-need-project-discovery.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Зачем владельцу бизнеса заказывать предпроектное обследование перед стартом проекта"
+              "title": "why-business-owners-need-project-discovery"
             }
           }
         ],
@@ -214,10 +214,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d9c38a4bbf50db00",
+  "active": "1823b8e146fcfcdf",
   "lastOpenFiles": [
     "templates/article.md",
-    "_publications/Зачем владельцу бизнеса заказывать предпроектное обследование перед стартом проекта.md",
+    "_publications/why-business-owners-need-project-discovery.md",
+    "scripts/export_article.py",
+    "scripts",
+    "_publications/Зачем владельцу бизнеса проводить предпроектное обследование перед началом проекта.md",
     "README.md",
     "publications.html",
     "_config.yml",
@@ -226,7 +229,6 @@
     "assets",
     "_publications",
     "_layouts/publication.html",
-    "_layouts",
-    "index.html"
+    "_layouts"
   ]
 }
